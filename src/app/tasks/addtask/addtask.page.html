@@ -1,0 +1,114 @@
+<ion-toolbar >
+  <ion-buttons slot="start">
+    <ion-back-button color="secondary" defaultHref="/tasks"></ion-back-button>
+  </ion-buttons>
+  <ion-title color="secondary">
+    Add your Task 
+  </ion-title>
+</ion-toolbar>
+<ion-content>
+    <ion-grid class="ion-no-padding" >
+      <ion-row>
+        <ion-col size-md=6 offset-md=3 class="ion-no-padding" >
+          <div class="">
+            <form>
+              <ion-item  lines="full" class="ion-no-padding" >
+                <ion-label style="font-size: unset;">Choose a goal</ion-label>
+                <ion-select style="max-width: 60%;" mode="ios" value="exercise" okText="Okay" cancelText="Dismiss">
+                  <ion-select-option value="exercise">Exercise</ion-select-option>
+                  <ion-select-option value="rest">Resting time</ion-select-option>
+                  <ion-select-option value="skill">Build a skill</ion-select-option>
+                  <ion-select-option value="myself">Me time</ion-select-option>
+                  <ion-select-option value="diet">Diet plan</ion-select-option>
+                  <ion-select-option value="life">Organise my life</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item  lines="full" class="ion-margin-vertical ion-no-padding">
+                <ion-label position="stacked">Which Activity ?</ion-label>
+                <ion-input type="text"  ></ion-input>
+              </ion-item>
+
+              <ion-item  lines="full" class="ion-no-padding">
+                <ion-label position="stacked">Activity details</ion-label>
+                <ion-textarea rows="1" ></ion-textarea>
+              </ion-item>
+
+              <div class="days">
+                <p>How often ?</p>
+                <ion-row>
+                  <ion-col size="6" >
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Every Day</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="everyday"></ion-checkbox>
+                    </ion-item>
+    
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Monday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Monday"></ion-checkbox>
+                    </ion-item>
+    
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Tuesday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Tuesday"></ion-checkbox>
+                    </ion-item>
+    
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Wednesday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Wednesday"></ion-checkbox>
+                    </ion-item>
+                  </ion-col>
+
+                  <ion-col size="6">
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Thursday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Thursday"></ion-checkbox>
+                    </ion-item>
+    
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Friday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Friday"></ion-checkbox>
+                    </ion-item>
+    
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Saturday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Saturday"></ion-checkbox>
+                    </ion-item>
+    
+                    <ion-item  class=" ion-no-padding" lines="none" >
+                      <ion-label>Sunday</ion-label>
+                      <ion-checkbox mode="ios" slot="start" value="Sunday"></ion-checkbox>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+              </div>
+
+              <ion-item class=" ion-no-padding" lines="full">
+                <ion-label style="font-size: unset;">Start Time</ion-label>
+                <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+              </ion-item>
+
+              <ion-item class=" ion-no-padding" lines="full">
+                <ion-label style="font-size: unset;">End Time</ion-label>
+                <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+              </ion-item>
+
+              <ion-item  lines="full" class="ion-no-padding" >
+                <ion-label style="font-size: unset;">Reminder</ion-label>
+                <ion-select style="max-width: 60%;" mode="ios" value="10" okText="Okay" cancelText="Dismiss">
+                  <ion-select-option value="5">5 minutes before</ion-select-option>
+                  <ion-select-option value="10">10 minutes before</ion-select-option>
+                  <ion-select-option value="15">20 minutes before</ion-select-option>
+                  <ion-select-option value="30">30 minutes before</ion-select-option>
+                </ion-select>
+              </ion-item>
+
+              <div style="text-align: right;margin: 5px 20px;">
+                <ion-button color="primary" type="submit" >Add Task</ion-button>
+              </div> 
+            </form>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>

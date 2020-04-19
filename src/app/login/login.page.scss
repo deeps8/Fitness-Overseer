@@ -1,0 +1,48 @@
+ion-content{
+    ion-grid{
+        ion-row{
+            ion-col{
+                .logo-sec{
+
+                    ion-img{
+                        height: 60px;
+                    }
+                }
+                .ion-margin-vertical{
+                    margin: 80px  0  20px 0;
+                }
+
+                .frm-sec{
+                    width: 85%;
+                    margin: 0 auto;
+                    
+
+                    ion-buttons{
+                        margin: 20px 10px 0 0;
+                        padding: 0 10px;
+                        font-size: 25px;
+                    }
+
+                    ion-label{
+                        opacity: 0.7;
+                    }
+
+                    ion-button{
+                        --border-radius: 40px;
+                    }
+
+                    .ion-margin-vertical{
+                        margin: 20px  0;
+                    }
+
+                    .error-msg{
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        color: var(--ion-color-danger);
+                    }
+                }
+            }
+        }
+    }
+}

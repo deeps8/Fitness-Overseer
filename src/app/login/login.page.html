@@ -1,0 +1,49 @@
+
+<ion-content color="secondary">
+  <ion-grid class="ion-margin-vertical">
+    <ion-row>
+      <ion-col size-md="6"  offset-md="3" class="ion-margin-vertical">
+          <div>
+              <div class="logo-sec ion-margin-vertical ion-padding-vertical">
+                <ion-img [src]="logo"></ion-img>
+              </div>
+              <div class="frm-sec ion-padding">
+                <form novalidate [formGroup]="loginfrm" (ngSubmit)="login(loginfrm)" >
+                  <ion-item color="secondary" class="ion-margin-vertical ion-no-padding">
+                    <ion-buttons slot="start">
+                      <ion-icon name="person"></ion-icon>
+                    </ion-buttons>
+                    <ion-label position="floating">Username</ion-label>
+                    <ion-input  formControlName="username"
+                                name="username"
+                                type="text" ></ion-input>
+                    <div class="error-msg" *ngIf="loginfrm.get('username').hasError('required') && loginfrm.get('username').touched">
+                      required
+                    </div>
+                  </ion-item>
+                  <ion-item color="secondary" class="ion-margin-vertical ion-no-padding">
+                    <ion-buttons slot="start">
+                      <ion-icon name="lock-open"></ion-icon>
+                    </ion-buttons>
+                    <ion-label position="floating">Password</ion-label>
+                    <ion-input  formControlName="password"
+                                name="password"
+                                type="password"></ion-input>
+                    <div class="error-msg" *ngIf="loginfrm.get('password').hasError('required') && loginfrm.get('password').touched">
+                        required
+                    </div>            
+                  </ion-item>
+                  <div class="ion-margin-vertical ion-text-center">
+                    <a href="">Forget your password ?</a>
+                  </div>
+                  <ion-button expand="block" color="primary" size="large" class="ion-margin-vertical" type="submit" [disabled]="loginfrm.invalid" >Login</ion-button>
+                  <div class="ion-margin-vertical ion-text-center">
+                    <p>Are you a member ? <a [routerLink]="[ '/register' ]">Register</a></p>
+                  </div>
+                </form>
+              </div>
+          </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,219 @@
+<ion-toolbar color="clear">
+  <ion-buttons slot="start" class="ion-no-margin">
+    <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Fitness Overseer
+    </ion-title>
+</ion-toolbar>
+<ion-content>
+
+  <ion-fab [routerLink]="['/tasks','add']" vertical="bottom"  horizontal="end" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-grid class="ion-padding-bottom cal" >
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <div >
+          <ion-buttons slot="start" [routerLink]="['/tasks','all']" >
+              <ion-button fill="clear" color="secondary" class="ion-margin-right" >
+                <ion-icon name="calendar-sharp"></ion-icon>
+              </ion-button>
+             <ion-button color="seconday" fill="clear" class="ion-margin-left">{{curDay}}</ion-button>
+             <ion-button color="primary" fill="solid">{{curDate}}</ion-button>
+             <ion-buttons slot="end" style="margin-left: auto;font-size: 20px;" >
+              <ion-icon name="time-outline"></ion-icon>
+              <ion-button slot="end" fill="clear" color="secondary" class="ion-margin-right" >
+                {{curTime}}
+              </ion-button>
+            </ion-buttons>
+             
+          </ion-buttons>
+          
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- tasks grids -->
+
+  <ion-grid class="time-table ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+        <ion-list class="ion-no-padding" id="timelist">
+            <ion-item lines="full">
+              <ion-avatar> 1 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 2 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full" id="3am">
+              <ion-avatar> 3 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 4 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 5 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 6 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 7 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 8 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 9 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 10 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 11 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 12 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 1 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 2 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 3 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 4 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 5 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 6 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 7 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 8 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 9 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 10 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 11 pm </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="full">
+              <ion-avatar> 12 am </ion-avatar>
+              <ion-label >
+
+              </ion-label>
+            </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

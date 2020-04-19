@@ -1,0 +1,175 @@
+
+<ion-content>
+  <ion-grid class="">
+    <ion-row>
+      <ion-col size-md="6"  offset-md="3" class="ion-no-padding">
+          <div>
+              <div class="header-sec ion-padding-horizontal" *ngIf="sIndex===0">
+                <h2 [routerLink]="[ '/register' ]">
+                  Welcome to Fitness Overseer
+                </h2>
+                <h4>Help us to know more about you</h4>
+              </div>
+              <div class="header-sec ion-padding-horizontal" *ngIf="sIndex===1">
+                <h4>Knowing more about your Health conditions and Habbits</h4>
+              </div>
+              <div class="header-sec ion-padding-horizontal" *ngIf="sIndex===2">
+                <h4>Final questions</h4>
+              </div>
+              <div class="slides-sec">
+               <form> 
+                <ion-slides pager="false" #slides (ionSlideDidChange)="slideIndex()"  [options]="slideOpts">
+                  <ion-slide>
+                      <div class="slide-card">
+                        <h4>Step 1 of 3</h4>
+                        <ion-item color="clear" class="ion-margin-vertical ion-no-padding">
+                          <ion-label position="floating">Name</ion-label>
+                          <ion-input type="text" value="Deepak Sharma" ></ion-input>
+                        </ion-item>
+                        <div class="age-grp ion-margin-vertical">
+                          <p>Select your Age group</p>
+
+                            <ion-radio-group mode="ios" color="secondary" value="2">
+                              <ion-item class="ion-no-padding">
+                                <ion-label>8 - 17</ion-label>
+                                <ion-radio slot="end" value="1" selected></ion-radio>
+                              </ion-item>
+                          
+                              <ion-item class="ion-no-padding">
+                                <ion-label>18 - 28</ion-label>
+                                <ion-radio slot="end" value="2"></ion-radio>
+                              </ion-item>
+                          
+                              <ion-item class="ion-no-padding">
+                                <ion-label>29 - 40</ion-label>
+                                <ion-radio slot="end" value="3"></ion-radio>
+                              </ion-item>
+                              
+                              <ion-item class="ion-no-padding">
+                                <ion-label>40 above</ion-label>
+                                <ion-radio slot="end" value="4"></ion-radio>
+                              </ion-item>
+                            </ion-radio-group>
+                        </div>
+
+                        <ion-item color="clear" class="ion-margin-vertical ion-no-padding">
+                          <ion-label position="floating">Height in inches</ion-label>
+                          <ion-input type="number" value="71.5" ></ion-input>
+                        </ion-item>
+
+                        <ion-item color="clear" class="ion-margin-vertical ion-no-padding">
+                          <ion-label position="floating">Weight in Kg</ion-label>
+                          <ion-input type="number" value="78" ></ion-input>
+                        </ion-item>
+                        <ion-buttons slot="end">
+                          <ion-button color="primary" fill="solid" (click)="nextSlide()" >Next</ion-button>
+                        </ion-buttons>
+                      </div>
+                      
+                  </ion-slide>
+                  <ion-slide>
+                    <div class="slide-card">
+                      <h4>Step 2 of 3</h4>
+
+                      <ion-list class="slide-2">
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Do you have heart trouble ? </ion-label>
+                          <ion-checkbox mode="ios" slot="start" value="heart"></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Do you have High Blood Pressure ? </ion-label>
+                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Have you ever had breathing problems? </ion-label>
+                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Do you smoke?</ion-label>
+                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Do you drink acessively? <br>
+                            (more than 1-2/day)</ion-label>
+                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Do you have poor sleeping habits ? <br>
+                            (less than 8 hrs /night regularly)
+                            </ion-label>
+                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                        </ion-item>
+
+                        <ion-item class=" ion-no-padding" >
+                          <ion-label>Have you ever had injury ? </ion-label>
+                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                        </ion-item>
+
+
+                    </ion-list>
+                      
+                      <ion-buttons slot="end">
+                        <ion-button color="secondary" class="ion-margin-right" (click)="prevSlide()" >Back</ion-button>
+                        <ion-button color="primary" class="ion-margin-left" fill="solid" (click)="nextSlide()" >Next</ion-button>
+                      </ion-buttons>
+                    </div>  
+                  </ion-slide>
+                  <ion-slide>
+                    <div class="slide-card">
+                      <h4>Step 3 of 3</h4>
+                      <div class="slide-3">
+
+                        <ion-item color="clear" class="ion-no-padding">
+                          <ion-label position="floating">Tell about your injury or any health problem</ion-label>
+                          <ion-textarea ></ion-textarea>
+                        </ion-item>
+
+                        <p>If you are an Athlete or a Sports person name it below</p>
+                        <ion-item>
+                          <ion-label>Select Sports</ion-label>
+                          <ion-select mode="ios" placeholder="Select One">
+                            <ion-select-option value="football">Football</ion-select-option>
+                            <ion-select-option value="hockey">Hockey</ion-select-option>
+                            <ion-select-option value="other">Other</ion-select-option>
+                          </ion-select>
+                        </ion-item>
+
+                        <p>What is your Primary Goal ?</p>
+                        <ion-radio-group mode="ios" color="secondary" value="1">
+                          <ion-item lines="full" class="ion-no-padding ">
+                            <ion-label>Normal exercise and yoga training ?</ion-label>
+                            <ion-radio slot="start" value="1" selected></ion-radio>
+                          </ion-item>
+                      
+                          <ion-item lines="full" class="ion-no-padding">
+                            <ion-label>Gym training ?</ion-label>
+                            <ion-radio slot="start" value="2"></ion-radio>
+                          </ion-item>
+                      
+                          <ion-item lines="full" class="ion-no-padding">
+                            <ion-label>Professional training for any sports ?</ion-label>
+                            <ion-radio slot="start" value="3"></ion-radio>
+                          </ion-item>
+                        </ion-radio-group>
+                      </div>
+                      
+                      <ion-buttons slot="end">
+                        <ion-button color="secondary" class="ion-margin-right" (click)="prevSlide()" >Back</ion-button>
+                        <ion-button color="primary" class="ion-margin-left" fill="solid" [routerLink]="[ '/tasks' ]" >Submit</ion-button>
+                      </ion-buttons>
+                    </div>
+                  </ion-slide>
+                </ion-slides>
+               </form>
+              </div>
+          </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

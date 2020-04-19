@@ -1,0 +1,18 @@
+ion-col{
+    ion-card{
+        box-shadow: 0px 1px 5px #ddd;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        outline: unset;
+        .img-sec{
+            height: 100px;
+            overflow: hidden;
+        }
+        ion-buttons{
+            margin: 5px 0;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--ion-color-secondary);
+        }
+    }
+}

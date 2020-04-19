@@ -1,0 +1,33 @@
+ion-content{
+    ion-toolbar{
+        ion-buttons{
+            ion-back-button,ion-button{
+                background: #0000009a;
+                border-radius: 100%;
+            }
+            ion-button{
+                height: 50px;
+                width: 50px;
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .task-details{
+        ion-item{
+            h1,h2{
+                color: var(--ion-color-primary);
+            }
+            p{
+                white-space: pre-line;
+                color: var(--ion-color-secondary);
+            }
+            ion-avatar{
+                ion-icon{
+                    font-size: 20px;
+                    color: var(--ion-color-secondary);
+                }
+            }
+        }
+    }
+}
