@@ -17,19 +17,19 @@
                 <h4>Final questions</h4>
               </div>
               <div class="slides-sec">
-               <form> 
+               <form novalidate [formGroup]="surveyfrm" (ngSubmit)="subSurvey(surveyfrm)"> 
                 <ion-slides pager="false" #slides (ionSlideDidChange)="slideIndex()"  [options]="slideOpts">
                   <ion-slide>
                       <div class="slide-card">
                         <h4>Step 1 of 3</h4>
                         <ion-item color="clear" class="ion-margin-vertical ion-no-padding">
-                          <ion-label position="floating">Name</ion-label>
-                          <ion-input type="text" value="Deepak Sharma" ></ion-input>
+                          <ion-label position="stacked">Name</ion-label>
+                          <div style="font-size: 18px;font-weight: 500;text-transform: capitalize;">{{name}}</div>
                         </ion-item>
                         <div class="age-grp ion-margin-vertical">
                           <p>Select your Age group</p>
 
-                            <ion-radio-group mode="ios" color="secondary" value="2">
+                            <ion-radio-group mode="md" color="secondary" formControlName="agegrp" required>
                               <ion-item class="ion-no-padding">
                                 <ion-label>8 - 17</ion-label>
                                 <ion-radio slot="end" value="1" selected></ion-radio>
@@ -54,12 +54,18 @@
 
                         <ion-item color="clear" class="ion-margin-vertical ion-no-padding">
                           <ion-label position="floating">Height in inches</ion-label>
-                          <ion-input type="number" value="71.5" ></ion-input>
+                          <ion-input formControlName="height" required type="number" ></ion-input>
+                          <div class="error-msg" *ngIf="surveyfrm.get('height').hasError('required') && surveyfrm.get('height').touched">
+                            required
+                          </div>
                         </ion-item>
 
                         <ion-item color="clear" class="ion-margin-vertical ion-no-padding">
                           <ion-label position="floating">Weight in Kg</ion-label>
-                          <ion-input type="number" value="78" ></ion-input>
+                          <ion-input formControlName="weight" required type="number" ></ion-input>
+                          <div class="error-msg" *ngIf="surveyfrm.get('weight').hasError('required') && surveyfrm.get('weight').touched">
+                            required
+                          </div>
                         </ion-item>
                         <ion-buttons slot="end">
                           <ion-button color="primary" fill="solid" (click)="nextSlide()" >Next</ion-button>
@@ -75,40 +81,34 @@
 
                         <ion-item class=" ion-no-padding" >
                           <ion-label>Do you have heart trouble ? </ion-label>
-                          <ion-checkbox mode="ios" slot="start" value="heart"></ion-checkbox>
+                          <ion-checkbox mode="md" slot="start" formControlName="heart" value="heart"></ion-checkbox>
                         </ion-item>
 
                         <ion-item class=" ion-no-padding" >
                           <ion-label>Do you have High Blood Pressure ? </ion-label>
-                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                          <ion-checkbox mode="md" slot="start" formControlName="highBP" value="highbp"></ion-checkbox>
                         </ion-item>
 
                         <ion-item class=" ion-no-padding" >
                           <ion-label>Have you ever had breathing problems? </ion-label>
-                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                          <ion-checkbox mode="md" slot="start" formControlName="brthPrb" value="brthprb"></ion-checkbox>
                         </ion-item>
 
                         <ion-item class=" ion-no-padding" >
                           <ion-label>Do you smoke?</ion-label>
-                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
-                        </ion-item>
-
-                        <ion-item class=" ion-no-padding" >
-                          <ion-label>Do you drink acessively? <br>
-                            (more than 1-2/day)</ion-label>
-                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                          <ion-checkbox mode="md" slot="start" formControlName="smoker" value="smoker"></ion-checkbox>
                         </ion-item>
 
                         <ion-item class=" ion-no-padding" >
                           <ion-label>Do you have poor sleeping habits ? <br>
                             (less than 8 hrs /night regularly)
                             </ion-label>
-                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                          <ion-checkbox mode="md" slot="start" formControlName="poorsleep" value="poorsleep"></ion-checkbox>
                         </ion-item>
 
                         <ion-item class=" ion-no-padding" >
                           <ion-label>Have you ever had injury ? </ion-label>
-                          <ion-checkbox mode="ios" slot="start" value=""></ion-checkbox>
+                          <ion-checkbox mode="md" slot="start" formControlName="injury" value="injury"></ion-checkbox>
                         </ion-item>
 
 
@@ -127,21 +127,19 @@
 
                         <ion-item color="clear" class="ion-no-padding">
                           <ion-label position="floating">Tell about your injury or any health problem</ion-label>
-                          <ion-textarea ></ion-textarea>
+                          <ion-textarea formControlName="injuryDetails" ></ion-textarea>
                         </ion-item>
 
                         <p>If you are an Athlete or a Sports person name it below</p>
                         <ion-item>
                           <ion-label>Select Sports</ion-label>
-                          <ion-select mode="ios" placeholder="Select One">
-                            <ion-select-option value="football">Football</ion-select-option>
-                            <ion-select-option value="hockey">Hockey</ion-select-option>
-                            <ion-select-option value="other">Other</ion-select-option>
+                          <ion-select  multiple="true" style="max-width: 100%;" mode="ios" formControlName="sports" placeholder="Select">
+                            <ion-select-option *ngFor="let item of sportsList" [value]="item">{{item}}</ion-select-option>
                           </ion-select>
                         </ion-item>
 
                         <p>What is your Primary Goal ?</p>
-                        <ion-radio-group mode="ios" color="secondary" value="1">
+                        <ion-radio-group mode="md" color="secondary" formControlName="goal">
                           <ion-item lines="full" class="ion-no-padding ">
                             <ion-label>Normal exercise and yoga training ?</ion-label>
                             <ion-radio slot="start" value="1" selected></ion-radio>
@@ -161,7 +159,7 @@
                       
                       <ion-buttons slot="end">
                         <ion-button color="secondary" class="ion-margin-right" (click)="prevSlide()" >Back</ion-button>
-                        <ion-button color="primary" class="ion-margin-left" fill="solid" [routerLink]="[ '/tasks' ]" >Submit</ion-button>
+                        <ion-button color="primary" class="ion-margin-left" fill="solid" type="submit" [disabled]="surveyfrm.invalid" >Submit</ion-button>
                       </ion-buttons>
                     </div>
                   </ion-slide>

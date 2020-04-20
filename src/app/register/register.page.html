@@ -7,13 +7,18 @@
                 <ion-img [src]="logo"></ion-img>
               </div>
               <div class="frm-sec ion-padding">
-                <form >
+                <form novalidate [formGroup]="regform" (ngSubmit)="register(regform)">
                   <ion-item color="secondary" class="ion-margin-vertical ion-no-padding">
                     <ion-buttons slot="start">
                       <ion-icon name="person"></ion-icon>
                     </ion-buttons>
                     <ion-label position="floating">Name</ion-label>
-                    <ion-input type="text" ></ion-input>
+                    <ion-input  formControlName="name"
+                                required
+                                type="text" ></ion-input>
+                    <div class="error-msg" *ngIf="regform.get('name').hasError('required') && regform.get('name').touched">
+                      required
+                    </div>            
                   </ion-item>
 
                   <ion-item color="secondary" class="ion-margin-vertical ion-no-padding">
@@ -21,7 +26,16 @@
                       <ion-icon name="mail"></ion-icon>
                     </ion-buttons>
                     <ion-label position="floating">Email Address</ion-label>
-                    <ion-input type="email" ></ion-input>
+                    <ion-input  formControlName="email"
+                                required
+                                pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
+                                type="email" ></ion-input>
+                    <div class="error-msg" *ngIf="regform.get('email').hasError('required') && regform.get('email').touched">
+                      required
+                    </div>
+                    <div class="error-msg" *ngIf="regform.get('email').hasError('pattern')">
+                      invalid
+                    </div>            
                   </ion-item>
 
                   <ion-item color="secondary" class="ion-margin-vertical ion-no-padding">
@@ -29,7 +43,12 @@
                       <ion-icon name="person"></ion-icon>
                     </ion-buttons>
                     <ion-label position="floating">Username</ion-label>
-                    <ion-input type="text" ></ion-input>
+                    <ion-input  formControlName="username"
+                                required  
+                                type="text" ></ion-input>
+                    <div class="error-msg" *ngIf="regform.get('username').hasError('required') && regform.get('username').touched">
+                      required
+                    </div>            
                   </ion-item>
 
                   <ion-item color="secondary" class="ion-margin-vertical ion-no-padding">
@@ -37,10 +56,15 @@
                       <ion-icon name="lock-open"></ion-icon>
                     </ion-buttons>
                     <ion-label position="floating">Password</ion-label>
-                    <ion-input type="password"></ion-input>
+                    <ion-input  formControlName="password"
+                                required
+                                type="password"></ion-input>
+                    <div class="error-msg" *ngIf="regform.get('password').hasError('required') && regform.get('password').touched">
+                      required
+                    </div>            
                   </ion-item>
                   
-                  <ion-button expand="block" color="primary" size="large" class="ion-margin-vertical">Register</ion-button>
+                  <ion-button expand="block" color="primary" size="large" class="ion-margin-vertical" type="submit" [disabled]="regform.invalid" >Register</ion-button>
                   
                   <div class="ion-margin-vertical ion-text-center">
                     <p>Already a member ? <a [routerLink]="[ '/login' ]">Login</a></p>

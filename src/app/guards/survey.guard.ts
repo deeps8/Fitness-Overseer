@@ -15,12 +15,12 @@ export class SurveyGuard implements CanActivate, CanActivateChild, CanLoad {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     if(this.logservice.surveyStatus()==='true'){
-    console.log(this.logservice.surveyStatus());
+    //console.log(this.logservice.surveyStatus());
 
       this.router.navigate(['/tasks']);
       return false;
     }else{
-    console.log(this.logservice.surveyStatus());
+    //console.log(this.logservice.surveyStatus());
       return true;
     }
   }

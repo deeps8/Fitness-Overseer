@@ -15,7 +15,7 @@ export class NonsurveyGuard implements CanActivate, CanActivateChild, CanLoad {
   next: ActivatedRouteSnapshot,
   state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
   if(this.logservice.surveyStatus()==='true'){
-    console.log(this.logservice.surveyStatus());
+    //console.log(this.logservice.surveyStatus());
         return true;
       }else{
         this.router.navigate(['/home']);

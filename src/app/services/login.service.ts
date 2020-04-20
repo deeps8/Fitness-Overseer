@@ -8,6 +8,7 @@ import { map } from 'rxjs/operators';
 })
 export class LoginService {
   loginurl: string = 'http://localhost:3000/user/login';
+  signupurl: string = 'http://localhost:3000/user/signup';
   userDetails:any;
   constructor(private http: HttpClient,
               private router: Router ) {
@@ -23,6 +24,15 @@ export class LoginService {
       })
     } 
     return <any>this.http.post(this.loginurl,userdata,this.httpOptions);
+  }
+
+  registerUser(userdata){
+    this.httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    } 
+    return <any>this.http.post(this.signupurl,userdata,this.httpOptions);
   }
 
   logStatus(){
