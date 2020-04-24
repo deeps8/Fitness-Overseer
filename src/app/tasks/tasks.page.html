@@ -8,8 +8,8 @@
 </ion-toolbar>
 <ion-content>
 
-  <ion-fab [routerLink]="['/tasks','add']" vertical="bottom"  horizontal="end" slot="fixed">
-    <ion-fab-button color="primary">
+  <ion-fab  vertical="bottom"  horizontal="end" slot="fixed">
+    <ion-fab-button [routerLink]="['/tasks','add']" color="primary" style="outline: none;">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>
@@ -44,7 +44,17 @@
     <ion-row class="ion-no-padding">
       <ion-col class="ion-no-padding">
         <ion-list class="ion-no-padding" id="timelist">
-            <ion-item lines="full">
+          <!-- <app-taskcard *ngFor="let item of taskList" [taskd]="item"  ></app-taskcard> -->
+          <div *ngFor="let t of sendTask" 
+                [routerLink]="['/tasks','single',t.task.tid]"
+                [id]="t.task.tid" 
+                class="task" 
+                [ngStyle]="{top: t.top,height:t.height,background:t.task.category.color}" >
+
+                  {{t.task.title}}
+                  <ion-ripple-effect></ion-ripple-effect>
+          </div>
+            <ion-item lines="full" >
               <ion-avatar> 1 am </ion-avatar>
               <ion-label >
 
@@ -54,7 +64,6 @@
             <ion-item lines="full">
               <ion-avatar> 2 am </ion-avatar>
               <ion-label >
-
               </ion-label>
             </ion-item>
 

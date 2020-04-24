@@ -14,39 +14,40 @@
   </ion-toolbar>
   <ion-grid class="ion-no-padding">
     <ion-row>
-      <ion-col size-md="6"  offset-md="3" class="ion-no-padding">
-        <img src="../../assets/img/exercise.jpg" >
+      <ion-col size-md="6"  offset-md="3" class="ion-no-padding" *ngFor="let task of taskdetails" >
+        <img [src]="setBgurl(task.category.cindex)" >
+        <h3 class="category" [ngStyle]="{background: task.category.color}">{{task.category.name}}</h3>
         <div class="ion-padding task-details">
           <ion-item lines="none">
             <ion-avatar slot="start">
-              <ion-icon name="calendar-sharp"></ion-icon>
+              <ion-icon name="calendar-sharp" [ngStyle]="{color: task.category.color}" ></ion-icon>
             </ion-avatar>
             <ion-label>
-              <h1 color="primary">Work Out</h1>
-              <h3>8 am - 9 am</h3>
+              <h1 color="primary">{{task.title}}</h1>
+              <h3>{{setTime(task.start)}} - {{setTime(task.end)}}</h3>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. 
+                {{task.detailed}}
               </p>
             </ion-label>
           </ion-item>
 
           <ion-item lines="none">
             <ion-avatar slot="start">
-              <ion-icon name="flag-sharp"></ion-icon>
+              <ion-icon name="flag-sharp" [ngStyle]="{color: task.category.color}"></ion-icon>
             </ion-avatar>
             <ion-label>
-              <h2>Every day</h2>
-              <h3>1 hour</h3>
+              <h2>{{setDays(task.days)}}</h2>
+              <h3>{{calTP(task.timePeriod)}}</h3>
             </ion-label>
           </ion-item>
 
           <ion-item lines="none">
             <ion-avatar slot="start">
-              <ion-icon name="notifications-sharp"></ion-icon>
+              <ion-icon name="notifications-sharp" [ngStyle]="{color: task.category.color}"></ion-icon>
             </ion-avatar>
             <ion-label>
               <h2>Reminder</h2>
-              <h3>10 minute before</h3>
+              <h3>{{task.reminder.before}} minute before</h3>
             </ion-label>
           </ion-item>
 

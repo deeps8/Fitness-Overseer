@@ -11,12 +11,23 @@ ion-content{
                 margin-left: 10px;
             }
         }
+
+    }
+
+    .category{
+        margin: 0px;
+        padding: 10px 20px;
+        color: white;
+        text-shadow: 0px 0px 5px #333;
     }
 
     .task-details{
         ion-item{
             h1,h2{
                 color: var(--ion-color-primary);
+            }
+            h3{
+                font-weight: 500;
             }
             p{
                 white-space: pre-line;

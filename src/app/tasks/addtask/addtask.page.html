@@ -11,91 +11,71 @@
       <ion-row>
         <ion-col size-md=6 offset-md=3 class="ion-no-padding" >
           <div class="">
-            <form>
+            <form novalidate [formGroup]="taskform" (ngSubmit)="addTask(taskform.value)">
               <ion-item  lines="full" class="ion-no-padding" >
                 <ion-label style="font-size: unset;">Choose a goal</ion-label>
-                <ion-select style="max-width: 60%;" mode="ios" value="exercise" okText="Okay" cancelText="Dismiss">
-                  <ion-select-option value="exercise">Exercise</ion-select-option>
-                  <ion-select-option value="rest">Resting time</ion-select-option>
-                  <ion-select-option value="skill">Build a skill</ion-select-option>
-                  <ion-select-option value="myself">Me time</ion-select-option>
-                  <ion-select-option value="diet">Diet plan</ion-select-option>
-                  <ion-select-option value="life">Organise my life</ion-select-option>
+                <ion-select formControlName="category" required 
+                            style="max-width: 60%;" mode="ios" okText="Okay" cancelText="Cancel">
+                  <ion-select-option *ngFor="let item of category" [value]="item.cindex">
+                    {{item.name}}
+                  </ion-select-option>
                 </ion-select>
               </ion-item>
 
               <ion-item  lines="full" class="ion-margin-vertical ion-no-padding">
-                <ion-label position="stacked">Which Activity ?</ion-label>
-                <ion-input type="text"  ></ion-input>
+                <ion-label position="stacked">Task name</ion-label>
+                <ion-input  formControlName="title" required
+                            type="text"  ></ion-input>
               </ion-item>
 
               <ion-item  lines="full" class="ion-no-padding">
-                <ion-label position="stacked">Activity details</ion-label>
-                <ion-textarea rows="1" ></ion-textarea>
+                <ion-label position="stacked">Task details</ion-label>
+                <ion-textarea   formControlName="detailed" required
+                                rows="2" ></ion-textarea>
               </ion-item>
 
-              <div class="days">
-                <p>How often ?</p>
-                <ion-row>
-                  <ion-col size="6" >
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Every Day</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="everyday"></ion-checkbox>
-                    </ion-item>
-    
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Monday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Monday"></ion-checkbox>
-                    </ion-item>
-    
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Tuesday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Tuesday"></ion-checkbox>
-                    </ion-item>
-    
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Wednesday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Wednesday"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-
-                  <ion-col size="6">
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Thursday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Thursday"></ion-checkbox>
-                    </ion-item>
-    
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Friday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Friday"></ion-checkbox>
-                    </ion-item>
-    
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Saturday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Saturday"></ion-checkbox>
-                    </ion-item>
-    
-                    <ion-item  class=" ion-no-padding" lines="none" >
-                      <ion-label>Sunday</ion-label>
-                      <ion-checkbox mode="ios" slot="start" value="Sunday"></ion-checkbox>
-                    </ion-item>
-                  </ion-col>
-                </ion-row>
+              <div class="form-msg">
+                <p>
+                  Select <b>Everyday</b> for daily tasks and <b>Today</b> for single day task. 
+                </p>
+                <p>
+                  Select multiple days for multiple tasks.
+                </p>
               </div>
+
+              <ion-item  lines="full" class="ion-no-padding" >
+                <ion-label style="font-size: unset;">Select days</ion-label>
+                  <ion-select multiple="true" formControlName="days" required
+                              (ionChange)="checkDays()"
+                              style="max-width: 60%;" mode="ios"  okText="Okay" cancelText="Cancel">
+                  <ion-select-option value="today">Today</ion-select-option>
+                  <ion-select-option value="everyday">Everyday</ion-select-option>
+                  <ion-select-option value="monday">Monday</ion-select-option>
+                  <ion-select-option value="tuesday">Tuesday</ion-select-option>
+                  <ion-select-option value="wednesday">Wednesday</ion-select-option>
+                  <ion-select-option value="thursday">Thursday</ion-select-option>
+                  <ion-select-option value="friday">Friday</ion-select-option>
+                  <ion-select-option value="saturday">Saturday</ion-select-option>
+                  <ion-select-option value="sunday">Sunday</ion-select-option>
+                </ion-select>
+              </ion-item>
 
               <ion-item class=" ion-no-padding" lines="full">
                 <ion-label style="font-size: unset;">Start Time</ion-label>
-                <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+                <ion-datetime formControlName="start" required  
+                              display-format="h:mm A" picker-format="h:mm A" ></ion-datetime>
               </ion-item>
 
               <ion-item class=" ion-no-padding" lines="full">
                 <ion-label style="font-size: unset;">End Time</ion-label>
-                <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"></ion-datetime>
+                <ion-datetime   formControlName="end" required
+                                display-format="h:mm A" picker-format="h:mm A" ></ion-datetime>
               </ion-item>
 
               <ion-item  lines="full" class="ion-no-padding" >
                 <ion-label style="font-size: unset;">Reminder</ion-label>
-                <ion-select style="max-width: 60%;" mode="ios" value="10" okText="Okay" cancelText="Dismiss">
+                <ion-select   formControlName="reminder" required
+                              style="max-width: 60%;" mode="ios" okText="Okay" cancelText="Cancel">
                   <ion-select-option value="5">5 minutes before</ion-select-option>
                   <ion-select-option value="10">10 minutes before</ion-select-option>
                   <ion-select-option value="15">20 minutes before</ion-select-option>
@@ -104,7 +84,7 @@
               </ion-item>
 
               <div style="text-align: right;margin: 5px 20px;">
-                <ion-button color="primary" type="submit" >Add Task</ion-button>
+                <ion-button color="primary" type="submit" [disabled]="taskform.invalid" >Add Task</ion-button>
               </div> 
             </form>
           </div>

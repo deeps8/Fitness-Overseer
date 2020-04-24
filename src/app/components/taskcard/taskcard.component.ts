@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-taskcard',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskcardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
 }

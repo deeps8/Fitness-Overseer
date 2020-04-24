@@ -20,7 +20,7 @@ const routes: Routes = [
     canActivate:[NonsurveyGuard]
   },
   {
-    path: 'single',
+    path: 'single/:id',
     loadChildren: () => import('./single/single.module').then( m => m.SinglePageModule),
     canActivate:[NonsurveyGuard]
   }

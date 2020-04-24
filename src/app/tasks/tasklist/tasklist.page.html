@@ -10,142 +10,29 @@
   <ion-grid>
     <ion-row>
       <ion-col size-md="6"  offset-md="3">
-        <ion-card [routerLink]="[ '/tasks','single']" >
+
+        
+        <ion-card *ngFor="let task of taskList" [routerLink]="[ '/tasks','single',task.tid]" >
           <div class="img-sec">
-            <img src="../../assets/img/exercise.jpg" >
+            <img  [src]="setBgurl(task.category.cindex)" >
           </div>
           <ion-card-header>
-            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon> Work Out</ion-card-title>
-            <ion-card-subtitle>Exercise</ion-card-subtitle>
+            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon>{{task.title}}</ion-card-title>
+            <ion-card-subtitle [ngStyle]="{color: task.category.color}" >{{task.category.name}}</ion-card-subtitle>
             
             <ion-buttons>
               <ion-icon slot="start" name="time-sharp"></ion-icon>
-              <ion-label>8 am - 9 am</ion-label>
+              <ion-label>{{setTime(task.start)}} - {{setTime(task.end)}}</ion-label>
             </ion-buttons>
             
             <ion-buttons>
               <ion-icon slot="start" name="notifications-sharp"></ion-icon> 
-              <ion-label>10 minutes before</ion-label>
+              <ion-label>{{task.reminder.before}} minutes before</ion-label>
             </ion-buttons>
         
           </ion-card-header>
           
         </ion-card>
-
-        <ion-card>
-          <div class="img-sec">
-            <img src="../../assets/img/diet.jpg" >
-          </div>
-          <ion-card-header>
-            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon>Sugarfree</ion-card-title>
-            <ion-card-subtitle>Diet</ion-card-subtitle>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="time-sharp"></ion-icon>
-              <ion-label>10 am - 11 am</ion-label>
-            </ion-buttons>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="notifications-sharp"></ion-icon> 
-              <ion-label>10 minutes before</ion-label>
-            </ion-buttons>
-        
-          </ion-card-header>
-          
-        </ion-card>
-
-
-        <ion-card>
-          <div class="img-sec">
-            <img src="../../assets/img/metime.jpg" >
-          </div>
-          <ion-card-header>
-            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon>Meditation</ion-card-title>
-            <ion-card-subtitle>Me time</ion-card-subtitle>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="time-sharp"></ion-icon>
-              <ion-label>5 pm - 6 pm</ion-label>
-            </ion-buttons>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="notifications-sharp"></ion-icon> 
-              <ion-label>10 minutes before</ion-label>
-            </ion-buttons>
-        
-          </ion-card-header>
-          
-        </ion-card>
-
-
-        <ion-card>
-          <div class="img-sec">
-            <img src="../../assets/img/organise.jpg" >
-          </div>
-          <ion-card-header>
-            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon>Check my Emails</ion-card-title>
-            <ion-card-subtitle>Organise my life</ion-card-subtitle>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="time-sharp"></ion-icon>
-              <ion-label>9 am - 10 am</ion-label>
-            </ion-buttons>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="notifications-sharp"></ion-icon> 
-              <ion-label>10 minutes before</ion-label>
-            </ion-buttons>
-        
-          </ion-card-header>
-          
-        </ion-card>
-
-
-        <ion-card>
-          <div class="img-sec">
-            <img src="../../assets/img/resting.jpg" />
-          </div>
-          <ion-card-header>
-            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon>Afternoon nap</ion-card-title>
-            <ion-card-subtitle>Resting time</ion-card-subtitle>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="time-sharp"></ion-icon>
-              <ion-label>4 pm - 5 pm</ion-label>
-            </ion-buttons>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="notifications-sharp"></ion-icon> 
-              <ion-label>10 minutes before</ion-label>
-            </ion-buttons>
-        
-          </ion-card-header>
-          
-        </ion-card>
-
-
-        <ion-card>
-          <div class="img-sec">
-            <img src="../../assets/img/skill.jpg" >
-          </div>
-          <ion-card-header>
-            <ion-card-title color="primary"> <ion-icon slot="start" name="flag-sharp"></ion-icon>Learn Android</ion-card-title>
-            <ion-card-subtitle>Skill</ion-card-subtitle>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="time-sharp"></ion-icon>
-              <ion-label>9 pm - 11 pm</ion-label>
-            </ion-buttons>
-            
-            <ion-buttons>
-              <ion-icon slot="start" name="notifications-sharp"></ion-icon> 
-              <ion-label>10 minutes before</ion-label>
-            </ion-buttons>
-        
-          </ion-card-header>
-          
-        </ion-card>
-
 
       </ion-col>
     </ion-row>

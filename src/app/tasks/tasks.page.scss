@@ -7,12 +7,13 @@
 }
 :host ::ng-deep .task{
     position: absolute;
-    left: 70px;
-    width: 83%;
+    z-index: 10;
+    outline: none;
+    left: 60px;
+    width: 100%;
     color: white;
     border-radius: 3px;
     padding: 5px 10px;
-    background: rgb(103, 223, 149);
 }
 .time-table{
     ion-row{
@@ -22,14 +23,14 @@
                 ion-item{
                     --padding: 0px;
                     ion-avatar{
-                        margin: auto 2px;
                         border-radius: unset;
                         border-right: 1px solid #ddd;
-                        font-size: 13px;
+                        font-size: 11px;
                         font-weight: 500;
-                        padding-top: 10px;
+                        padding-top: 0;
+                        margin: 0;
                         text-align: end;
-                        width: 50px;
+                        width: 42px;
                         padding-right: 10px;
                     }
                     ion-label{

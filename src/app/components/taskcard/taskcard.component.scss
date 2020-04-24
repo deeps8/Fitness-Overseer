@@ -1,0 +1,14 @@
+.task{
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    left: 60px;
+    width: 100%;
+    color: white;
+    border-radius: 3px;
+    padding: 5px 10px;
+    background: #2196F3;
+    p{
+        margin: 5px;
+    }
+}

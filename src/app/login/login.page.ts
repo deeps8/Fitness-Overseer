@@ -39,7 +39,7 @@ export class LoginPage implements OnInit {
         localStorage.setItem('member',res.user.member);
 
         this.loginserve.userDetails = res.user;
-
+        this.loginfrm.reset();
         // navigating to home page (gaurds will redirect to perticular page on Survey value)
         this.router.navigate(['/home']);
       }
